@@ -2283,59 +2283,52 @@ lastFaultState = faultState;
    /* LOGIN */
 function login(){
 
-const user = document.getElementById("username").value.trim();
-const pass = document.getElementById("password").value.trim();
+  const user = document.getElementById("username").value.trim();
+  const pass = document.getElementById("password").value.trim();
 
-if(
-(user === "admin" && pass === "1234") ||
-(user === "8888888" && pass === "5678")
-){
+  if(
+      (user === "admin" && pass === "1234") ||
+      (user === "8888888" && pass === "5678")
+  ){
 
-```
-// บันทึกสถานะ login
-localStorage.setItem("isLoggedIn","true");
+    // บันทึกสถานะ login
+    localStorage.setItem("isLoggedIn","true");
 
-// ซ่อนหน้า login
-document.getElementById("loginScreen").style.display="none";
+    // ซ่อนหน้า login
+    document.getElementById("loginScreen").style.display="none";
 
-// แสดง dashboard
-document.getElementById("dashboard").style.display="flex";
+    // แสดง dashboard
+    document.getElementById("dashboard").style.display="flex";
 
-// เริ่มระบบ
-startSystem();
-```
+    // เริ่มระบบ
+    startSystem();
 
-}else{
+  }else{
 
-```
-document.getElementById("errorMsg").innerText="Invalid username or password";
-```
+    document.getElementById("errorMsg").innerText="Invalid username or password";
 
-}
+  }
 
 }
 
 function logout(){
-localStorage.removeItem("isLoggedIn");
-location.reload();
+  localStorage.removeItem("isLoggedIn");
+  location.reload();
 }
 
-// ตรวจว่าเคย login แล้วหรือยัง
+// ตรวจ login ตอนเปิดเว็บ
 window.onload = function(){
 
-if(localStorage.getItem("isLoggedIn") === "true"){
+  if(localStorage.getItem("isLoggedIn") === "true"){
 
-```
-document.getElementById("loginScreen").style.display="none";
-document.getElementById("dashboard").style.display="flex";
+    document.getElementById("loginScreen").style.display="none";
+    document.getElementById("dashboard").style.display="flex";
 
-startSystem();
-```
+    startSystem();
 
-}
+  }
 
 };
-
 
       const loginScreen = document.getElementById("loginScreen");
       const dashboard = document.getElementById("dashboard");
